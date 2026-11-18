@@ -1,18 +1,14 @@
 const API_URL = 'http://localhost:8080/api/productos';
 
-// Cargamos el carrito guardado en el navegador
 let carrito = JSON.parse(localStorage.getItem('carrito_videojuegos')) || [];
 let productosCache = [];
 
-// Inicialización al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     actualizarContador();
     cargarProductos();
 });
 
-// ========================
-// CARRITO (localStorage)
-// ========================
+
 function agregarAlCarrito(nombre, precio) {
     carrito.push({ nombre, precio });
     localStorage.setItem('carrito_videojuegos', JSON.stringify(carrito));
@@ -27,9 +23,6 @@ function actualizarContador() {
     }
 }
 
-// ========================
-// CONSULTAR PRODUCTOS (GET)
-// ========================
 async function cargarProductos() {
     try {
         const respuesta = await fetch(API_URL);
@@ -37,12 +30,12 @@ async function cargarProductos() {
 
         productosCache = await respuesta.json();
 
-        // Si estamos en index.html
+        //index.html
         if (document.getElementById('contenedor-productos')) {
             renderizarCatalogo(productosCache);
         }
 
-        // Si estamos en admin.html
+        //admin.html
         if (document.getElementById('tabla-productos')) {
             renderizarTablaAdmin(productosCache);
         }
@@ -51,9 +44,6 @@ async function cargarProductos() {
     }
 }
 
-// ========================
-// RENDERIZADO CATÁLOGO (index.html)
-// ========================
 function renderizarCatalogo(lista) {
     const contenedor = document.getElementById('contenedor-productos');
     if (!contenedor) return;
@@ -104,9 +94,6 @@ function filtrarPorCategoria() {
     }
 }
 
-// ========================
-// PANEL ADMINISTRACIÓN (admin.html)
-// ========================
 function renderizarTablaAdmin(lista) {
     const tabla = document.getElementById('tabla-productos');
     if (!tabla) return;
@@ -135,7 +122,6 @@ function renderizarTablaAdmin(lista) {
     });
 }
 
-// CREAR (POST) O ACTUALIZAR (PUT)
 async function guardarProductoAdmin(event) {
     event.preventDefault();
 
@@ -203,7 +189,6 @@ function cancelarEdicion() {
     document.getElementById('btn-cancelar').style.display = 'none';
 }
 
-// ELIMINAR (DELETE)
 async function eliminarProducto(id, nombre) {
     if (!confirm(`¿Seguro que deseas eliminar "${nombre}" de la base de datos?`)) return;
 

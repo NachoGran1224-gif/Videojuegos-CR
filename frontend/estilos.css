@@ -90,7 +90,6 @@ select:focus {
     border-color: #83aec0;
 }
 
-/* Cuadrícula de productos */
 .grid-productos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -98,7 +97,6 @@ select:focus {
     margin-top: 28px;
 }
 
-/* Tarjeta limpia y minimalista */
 .card {
     background-color: #000000;
     border: 1px solid #fdfdfd;

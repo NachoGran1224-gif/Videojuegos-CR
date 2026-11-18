@@ -69,7 +69,7 @@ function agregarProductoAdmin(event) {
 }
 
 function eliminarFila(boton) {
-    if (confirm('¿Seguro que deseas eliminar este videojuego del inventario?')) {
+    if (confirm('¿Seguro que deseas eliminar este juego del catalogo?')) {
         const fila = boton.closest('tr');
         fila.remove();
     }

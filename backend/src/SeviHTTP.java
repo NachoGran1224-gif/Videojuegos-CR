@@ -25,7 +25,7 @@ public class SeviHTTP {
         // Ruta de la API para productos (GET, POST, PUT, DELETE)
         server.createContext("/api/productos", SeviHTTP::manejarProductos);
 
-        // Ruta para servir los archivos estáticos de la carpeta frontend/
+        // Ruta para servir los archivos estáticos de la carpeta frontend
         server.createContext("/", SeviHTTP::manejarArchivosEstaticos);
 
         server.setExecutor(null);
@@ -34,7 +34,7 @@ public class SeviHTTP {
     }
 
     private static void manejarProductos(HttpExchange exchange) throws IOException {
-        // Cabeceras CORS por si abres el HTML desde Live Server en otro puerto
+        //Cabeceras CORS por si abrimos el HTML desde Live Server en otro puerto
         exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
         exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
@@ -121,7 +121,7 @@ public class SeviHTTP {
         }
     }
 
-    // --- UTILIDADES PARA JSON Y PARÁMETROS SIN LIBRERÍAS EXTERNAS ---
+    //Utilidades para JSON
 
     private static String convertirListaAJson(List<Prod> lista) {
         StringBuilder sb = new StringBuilder("[");
@@ -155,7 +155,6 @@ public class SeviHTTP {
         return new String(is.readAllBytes(), StandardCharsets.UTF_8);
     }
 
-    // Soporta tanto JSON simple {"clave":"valor"} como formato formulario clave=valor&clave2=valor2
     private static Map<String, String> parsearDatos(String cuerpo) {
         Map<String, String> mapa = new HashMap<>();
         if (cuerpo == null || cuerpo.isBlank()) return mapa;

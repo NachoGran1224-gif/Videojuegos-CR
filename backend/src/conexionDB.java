@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class conexionDB {
-    // Ajusta el nombre de la BD, usuario y contraseña si en tu MySQL son distintos
+    // Ajusta el nombre de la BD, usuario y contraseña si en el MySQL son distintos
     private static final String URL = "jdbc:mysql://localhost:3306/videojuegos_cr?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USER = "root";
     private static final String PASSWORD = "Nachito1224"; 

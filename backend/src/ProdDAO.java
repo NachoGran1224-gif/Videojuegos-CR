@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ProdDAO {
 
-    // 1. LISTAR TODOS LOS PRODUCTOS (con el nombre de su categoría)
+    //Lista de todos los productos (con el nombre de su categoría)
     public List<Prod> listarProductos() throws SQLException {
         List<Prod> lista = new ArrayList<>();
         String sql = "SELECT p.id_producto, p.nombre, p.descripcion, p.precio, p.stock, p.imagen_url, " +
@@ -37,7 +37,7 @@ public class ProdDAO {
         return lista;
     }
 
-    // 2. AGREGAR UN NUEVO VIDEOJUEGO
+    //Agregar un nuevo juego
     public boolean agregarProducto(Prod p) throws SQLException {
         String sql = "INSERT INTO productos (nombre, descripcion, precio, stock, imagen_url, id_categoria) " +
                      "VALUES (?, ?, ?, ?, ?, ?)";
@@ -56,7 +56,7 @@ public class ProdDAO {
         }
     }
 
-    // 3. ACTUALIZAR UN VIDEOJUEGO EXISTENTE
+    //Actualizar un juego
     public boolean actualizarProducto(Prod p) throws SQLException {
         String sql = "UPDATE productos SET nombre = ?, descripcion = ?, precio = ?, stock = ?, " +
                      "imagen_url = ?, id_categoria = ? WHERE id_producto = ?";
@@ -76,7 +76,7 @@ public class ProdDAO {
         }
     }
 
-    // 4. ELIMINAR UN VIDEOJUEGO POR ID
+    //Eliminar un juego por el ID
     public boolean eliminarProducto(int idProducto) throws SQLException {
         String sql = "DELETE FROM productos WHERE id_producto = ?";
 

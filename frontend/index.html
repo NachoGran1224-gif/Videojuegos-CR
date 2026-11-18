@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videojuegos CR | su tienda de confianza en Costa Rica</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Videojuegos CR</h1>
+        <nav>
+            <a href="index.html">Catalogo de juegos</a>
+            <a href="admin.html">Administración</a>
+            <span id="contador-carrito" class="badge-carrito"> Carrito (0)</span>
+        </nav>
+    </header>
+
+    <main>
+        <div class="barra-superior">
+            <h2>Catálogo de Videojuegos</h2>
+            <select id="filtro-categoria" onchange="filtrarPorCategoria()">
+                <option value="todas">Todas las categorías de juegos</option>
+                <option value="1">Acción</option>
+                <option value="2">Aventura</option>
+                <option value="3">RPG</option>
+                <option value="4">Deportes</option>
+                <option value="5">Estrategia</option>
+            </select>
+        </div>
+        <div class="grid-productos" id="contenedor-productos"></div>
+
+            <div class="card" data-categoria="1">
+                <img src="imagenes/cod.jpg" alt="Call of Duty Modern Warfare">
+                <h3>Call of Duty Modern Warfare</h3>
+                <p class="descripcion">Juego de acción en primera persona con una campa;a interesante.</p>
+                <p class="precio">₡10,000.00</p>
+                <p class="stock">Disponibles: 20</p>
+                <button onclick="agregarAlCarrito('Call of Duty Modern Warfare', 10000)">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-categoria="2">
+                <img src="imagenes/zelda.jpg" alt="The Legend of Zelda Ocarina of Time Remake">
+                <h3>The Legend of Zelda Ocarina of Time Remake</h3>
+                <p class="descripcion">Juego de aventura de mundo abierto para Nintendo Switch.</p>
+                <p class="precio">₡45,000.00</p>
+                <p class="stock">Disponibles: 15</p>
+                <button onclick="agregarAlCarrito('The Legend of Zelda Ocarina of Time Remake', 45000)">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-categoria="4">
+                <img src="imagenes/fc27.jpg" alt="FC 27">
+                <h3>FC 27</h3>
+                <p class="descripcion">Juego deportivo de fútbol que cuenta con muchos modos de juego.</p>
+                <p class="precio">₡32,000.00</p>
+                <p class="stock">Disponibles: 25</p>
+                <button onclick="agregarAlCarrito('FC 27', 32000)">Agregar al Carrito</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Videojuegos CR - Luis Ignacio Granados Mena - Universidad Castro Carazo</p>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
